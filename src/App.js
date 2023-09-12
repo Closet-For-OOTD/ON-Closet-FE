@@ -1,13 +1,19 @@
 import "./App.css";
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./Components/MainPage";
+import ClothUpload from "./Components/ClothUpload";
 
 function App() {
   return (
-    <div>
-      <p>This is Home</p>
-      <MainPage />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/upload" element={<ClothUpload />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
