@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import Closet from "./Closet";
 
 export default function ClothUpload() {
+  const [selected, setSelected] = useState("");
+  const changeSelect = (event) => {
+    setSelected(event.target.value);
+  };
+  console.log(selected);
+
   return (
     <>
       <div>Upload</div>
@@ -13,7 +19,12 @@ export default function ClothUpload() {
           <input type="file" name="myfile" />
           <label>
             이미지 종류:
-            <select className="clothType" name="clothingType">
+            <select
+              className="clothType"
+              value={selected}
+              name="clothingType"
+              onChange={changeSelect}
+            >
               <option value="TOP">TOP</option>
               <option value="BOTTOM">BOTTOM</option>
               <option value="OUTER">OUTER</option>
@@ -27,7 +38,8 @@ export default function ClothUpload() {
           <input type="submit" />
         </form>
       </div>
-
+      <br />
+      <br />
       <Closet />
     </>
   );
