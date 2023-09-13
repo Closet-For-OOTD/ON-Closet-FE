@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./Components/MainPage";
 import ClothUpload from "./Components/ClothUpload";
+import Outfit from "./Components/Outfit";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/upload" element={<ClothUpload />} />
+          <Route path="/outfit" element={<Outfit />} />
         </Routes>
       </BrowserRouter>
     </>
