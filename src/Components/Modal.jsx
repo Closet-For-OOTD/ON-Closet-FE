@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Modal({ id, type, image, clicktop }) {
+export default function Modal({ id, type, image, clicktop, save }) {
   const clickPutOn = () => {
     clicktop(image);
-    alert(clicktop);
+    save(id, image);
+    alert("TOP이 착용되었습니다.");
   };
   const clickCancel = () => {
     id = null;

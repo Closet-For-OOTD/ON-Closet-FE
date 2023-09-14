@@ -10,6 +10,17 @@ export default function Outfit() {
   // Modal에서 button을 클릭한 경우
   const [clickTop, setClickTop] = useState("");
 
+  const saveImage = (imagdId, imageFile) => {
+    try {
+      const { data } = axios.post("/uploadOutfit", {
+        value: { id: imagdId, img: imageFile },
+      });
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     try {
       axios.get("/list").then((data) => setClothes(data));
@@ -46,6 +57,7 @@ export default function Outfit() {
                     type={cloth.type}
                     image={cloth.img}
                     clickTop={setClickTop}
+                    save={saveImage}
                   />
                 ) : null}
               </div>
