@@ -1,42 +1,42 @@
 import React, { useState } from "react";
-import Closet from "./Closet";
 import axios from "axios";
+import Closet from "./Closet";
 
 export default function ClothUpload() {
   const [selected, setSelected] = useState("");
   const changeSelect = (event) => {
     setSelected(event.target.value);
   };
-  console.log(selected);
+
+  const submitClick = () => {
+    window.location.reload();
+  };
+
+  const sendFile = (file) => {
+    try {
+      const { data } = axios.post("/upload", file);
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
     const myfile = event.target.myfile.files[0];
     const myselect = event.target.clothingType.value;
-
+    console.log(myselect);
     const formData = new FormData();
     formData.append("myfile", myfile);
     formData.append("clothingType", myselect);
-    sendData(formData);
-  };
-
-  const sendData = (file) => {
-    try {
-      const { data } = axios.post("upload", file);
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const submitClick = () => {
-    window.location.reload();
+    sendFile(formData);
   };
 
   return (
     <>
       <div>Upload</div>
       <br />
+
       <br />
       <div>
         <form
@@ -46,6 +46,7 @@ export default function ClothUpload() {
           onSubmit={onSubmitHandler}
         >
           <label>이미지 선택 : </label>
+          {/*  */}
           <input type="file" name="myfile" />
           <label>
             이미지 종류:

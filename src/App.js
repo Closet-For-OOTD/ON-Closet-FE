@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "./Components/MainPage";
 import ClothUpload from "./Components/ClothUpload";
 import Outfit from "./Components/Outfit";

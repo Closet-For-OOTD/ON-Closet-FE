@@ -6,6 +6,18 @@ import "./Closet.css";
 export default function Closet() {
   const [clothes, setClothes] = useState("");
 
+  function showCloth(value) {
+    return clothes.data?.map((cloth) =>
+      cloth.type === value ? (
+        <div key={cloth.id + cloth.type}>
+          <img src={cloth.img} alt="cloth" />
+        </div>
+      ) : (
+        ""
+      )
+    );
+  }
+
   useEffect(() => {
     try {
       axios.get("/list").then((data) => setClothes(data));
@@ -22,46 +34,10 @@ export default function Closet() {
           <span className="title-box">SHOES</span>
         </div>
         <div className="box">
-          <span className="close-box TOP">
-            {clothes.data?.map((cloth) =>
-              cloth.type === "TOP" ? (
-                <div key={cloth.id + cloth.type}>
-                  <span> {cloth.type}</span>
-                  <img src={cloth.img} alt="cloth" />
-                </div>
-              ) : null
-            )}
-          </span>
-          <span className="close-box BOTTOM">
-            {clothes.data?.map((cloth) =>
-              cloth.type === "BOTTOM" ? (
-                <div key={cloth.id + cloth.type}>
-                  <span> {cloth.type}</span>
-                  <img src={cloth.img} alt="cloth" />
-                </div>
-              ) : null
-            )}
-          </span>
-          <span className="close-box OUTER">
-            {clothes.data?.map((cloth) =>
-              cloth.type === "OUTER" ? (
-                <div key={cloth.id + cloth.type}>
-                  <span> {cloth.type}</span>
-                  <img src={cloth.img} alt="cloth" />
-                </div>
-              ) : null
-            )}
-          </span>
-          <span className="close-box SHOES">
-            {clothes.data?.map((cloth) =>
-              cloth.type === "SHOES" ? (
-                <div key={cloth.id + cloth.type}>
-                  <span> {cloth.type}</span>
-                  <img src={cloth.img} alt="cloth" />
-                </div>
-              ) : null
-            )}
-          </span>
+          <span className="close-box TOP">{showCloth("TOP")}</span>
+          <span className="close-box BOTTOM">{showCloth("BOTTOM")}</span>
+          <span className="close-box OUTER">{showCloth("OUTER")}</span>
+          <span className="close-box SHOES">{showCloth("SHOES")}</span>
         </div>
         <div className="button">
           <Link to="/outfit">
