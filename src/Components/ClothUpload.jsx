@@ -29,6 +29,10 @@ export default function ClothUpload() {
     }
   };
 
+  const submitClick = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       <div>Upload</div>
@@ -61,7 +65,7 @@ export default function ClothUpload() {
             {" "}
             * 이미지 파일만 업로드 가능합니다.
           </p>
-          <input type="submit" />
+          <input type="submit" onClick={submitClick} />
         </form>
       </div>
       <br />
