@@ -27,6 +27,11 @@ export default function Outfit() {
     } catch (e) {}
   }, []);
 
+  axios.get("/uploadOutfit").then((res) => {
+    const value = res.data[0];
+    setClickTop(value.img);
+  });
+
   return (
     <>
       {/* <div className="wrap">
@@ -56,7 +61,7 @@ export default function Outfit() {
                     id={cloth.id}
                     type={cloth.type}
                     image={cloth.img}
-                    clickTop={setClickTop}
+                    // clickTop={setClickTop}
                     save={saveImage}
                   />
                 ) : null}

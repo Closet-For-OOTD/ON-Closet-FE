@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 
 export default function Modal({ id, type, image, clicktop, save }) {
   const clickPutOn = () => {
-    clicktop(image);
+    // clicktop(image);
     save(id, image);
     alert("TOP이 착용되었습니다.");
+    window.location.reload();
   };
   const clickCancel = () => {
     id = null;
@@ -14,8 +15,13 @@ export default function Modal({ id, type, image, clicktop, save }) {
   const clickDelete = (e) => {
     console.log(e.target.id);
     const removeid = e.target.id;
-    axios.delete("/delete", { data: { removeid } });
-    window.location.reload();
+    try {
+      const { data } = axios.delete("/delete", { data: { removeid } });
+      window.location.reload();
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
