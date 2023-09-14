@@ -1,23 +1,33 @@
 import React, { useState } from "react";
+import axios from "axios";
 
-export default function Modal({ id, type, image, click }) {
+export default function Modal({ id, type, image, clicktop }) {
   const clickPutOn = () => {
-    click(image);
-    alert(click);
+    clicktop(image);
+    alert(clicktop);
   };
   const clickCancel = () => {
     id = null;
     alert("취소" + id);
   };
-  const clickDelete = () => {
-    console.log();
+  const clickDelete = (e) => {
+    console.log(e.target.id);
+    const removeid = e.target.id;
+    axios.delete("/delete", { data: { removeid } });
+    window.location.reload();
   };
 
   return (
     <div>
-      <button onClick={clickPutOn}>착용</button>
-      <button onClick={clickCancel}>취소</button>
-      <button onClick={clickDelete}>삭제</button>
+      <button id={id} onClick={clickPutOn}>
+        착용
+      </button>
+      <button id={id} onClick={clickCancel}>
+        취소
+      </button>
+      <button id={id} onClick={clickDelete}>
+        삭제
+      </button>
     </div>
   );
 }

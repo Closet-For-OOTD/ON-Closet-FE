@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Closet.css";
 
@@ -22,21 +23,50 @@ export default function Closet() {
         </div>
         <div className="box">
           <span className="close-box TOP">
-            {clothes.data?.map((cloth) => (
-              <div key={cloth.id + cloth.type}>
-                <span> {cloth.type}</span>
-                <img src={cloth.img} alt="cloth" />
-              </div>
-            ))}
+            {clothes.data?.map((cloth) =>
+              cloth.type === "TOP" ? (
+                <div key={cloth.id + cloth.type}>
+                  <span> {cloth.type}</span>
+                  <img src={cloth.img} alt="cloth" />
+                </div>
+              ) : null
+            )}
           </span>
-          <span className="close-box BOTTOM">dd</span>
-          <span className="close-box OUTER">dd</span>
-          <span className="close-box SHOES">dd</span>
+          <span className="close-box BOTTOM">
+            {clothes.data?.map((cloth) =>
+              cloth.type === "BOTTOM" ? (
+                <div key={cloth.id + cloth.type}>
+                  <span> {cloth.type}</span>
+                  <img src={cloth.img} alt="cloth" />
+                </div>
+              ) : null
+            )}
+          </span>
+          <span className="close-box OUTER">
+            {clothes.data?.map((cloth) =>
+              cloth.type === "OUTER" ? (
+                <div key={cloth.id + cloth.type}>
+                  <span> {cloth.type}</span>
+                  <img src={cloth.img} alt="cloth" />
+                </div>
+              ) : null
+            )}
+          </span>
+          <span className="close-box SHOES">
+            {clothes.data?.map((cloth) =>
+              cloth.type === "SHOES" ? (
+                <div key={cloth.id + cloth.type}>
+                  <span> {cloth.type}</span>
+                  <img src={cloth.img} alt="cloth" />
+                </div>
+              ) : null
+            )}
+          </span>
         </div>
         <div className="button">
-          <button type="button">착용</button>
-          <button type="button">삭제</button>
-          <button type="button">취소</button>
+          <Link to="/outfit">
+            <button>착장</button>
+          </Link>
         </div>
       </div>
     </>

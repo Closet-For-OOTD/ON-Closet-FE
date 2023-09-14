@@ -5,7 +5,6 @@ import Modal from "./Modal";
 
 export default function Outfit() {
   const [clothes, setClothes] = useState("");
-  const [modal, setModal] = useState(false);
   const [clothId, setClothId] = useState("");
 
   // Modal에서 button을 클릭한 경우
@@ -118,11 +117,11 @@ export default function Outfit() {
         <div className="right-box">
           <div id="face-box">
             FACE
-            <img src={clickTop} />
+            <img src="" />
           </div>
           <div id="top-box">
             TOP
-            <img value="TOP" src="" />
+            <img value="TOP" src={clickTop} />
           </div>
           <div id="bottom-box">
             BOTTOM
