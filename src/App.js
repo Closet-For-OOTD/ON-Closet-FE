@@ -1,9 +1,9 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import MainPage from "./Components/MainPage";
-import ClothUpload from "./Components/ClothUpload";
-import Outfit from "./Components/Outfit";
+import MainPage from "./components/MainPage";
+import ClothUpload from "./components/ClothUpload";
+import Outfit from "./components/Outfit";
 
 function App() {
   return (
