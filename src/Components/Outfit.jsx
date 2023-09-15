@@ -62,8 +62,7 @@ export default function Outfit() {
 
   axios.get("/uploadOutfit").then((res) => {
     const value = res.data;
-
-    for (let i = 0; i <= 3; i++) {
+    for (let i = 0; i < value.length; i++) {
       const type = value[i].type;
       const img = value[i].img;
       if (type === "TOP") {
