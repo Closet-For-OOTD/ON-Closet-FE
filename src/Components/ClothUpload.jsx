@@ -35,7 +35,7 @@ export default function ClothUpload() {
     event.preventDefault();
     const myfile = event.target.myfile.files[0];
     const myselect = event.target.clothingType.value;
-    console.log(myselect);
+    console.log(event.target.myfile.files);
     const formData = new FormData();
     formData.append("myfile", myfile);
     formData.append("clothingType", myselect);
@@ -59,7 +59,6 @@ export default function ClothUpload() {
             <Item>
               <div>Upload</div>
               <br />
-
               <br />
               <div>
                 <form
@@ -69,12 +68,22 @@ export default function ClothUpload() {
                   onSubmit={onSubmitHandler}
                 >
                   <label>Choose Image : </label>
-                  {/*  */}
                   <input type="file" name="myfile" />
                   <label>
                     Cloth Type:
+                    {/* <select
+                      className="clothType"
+                      value={selected}
+                      name="clothingType"
+                      onChange={changeSelect}
+                    >
+                      <option value="TOP">TOP</option>
+                      <option value="BOTTOM">BOTTOM</option>
+                      <option value="OUTER">OUTER</option>
+                      <option value="SHOES">SHOES</option>
+                    </select> */}
                     <Box sx={{ minWidth: 120 }}>
-                      <FormControl>
+                      <FormControl sx={{ minWidth: 20 }}>
                         <InputLabel id="select-label">clothType</InputLabel>
                         <Select
                           className="clothType"
