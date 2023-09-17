@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Outfit.css";
-import Modal from "./Modal";
+import Modal from "../Modal";
 
 export default function Outfit() {
   const [clothes, setClothes] = useState("");

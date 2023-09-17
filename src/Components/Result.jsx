@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Closet from "./Closet";
+import Closet from "./onlineCloset/Closet";
 import "./ClothUpload.css";
 // Grid
 import { Box, Paper, Grid } from "@mui/material";

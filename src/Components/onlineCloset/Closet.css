@@ -7,22 +7,18 @@
 .title {
   height: 50px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 .title-box {
-  margin: 10px;
   width: 300px;
 }
 
 .box {
-  height: 400px;
-  display: flex;
-  justify-content: center;
+  height: 300px;
 }
 
 .close-box {
   width: 300px;
   margin: 10px;
-  height: auto;
   border: 1px solid grey;
 }
