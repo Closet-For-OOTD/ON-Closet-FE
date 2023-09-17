@@ -1,24 +1,15 @@
-.wrap {
+.wrap-makecloset {
   margin: 30px;
-  width: auto;
   height: auto;
-}
-
-.title {
-  height: 50px;
   display: flex;
-  /* justify-content: center; */
 }
-.title-box {
-  width: 300px;
-}
-
-.box {
-  height: 300px;
+.wrap-outfitcloset {
+  margin: 30px;
+  height: auto;
+  display: block;
 }
 
 .close-box {
-  width: 300px;
-  margin: 10px;
+  width: 200px;
   border: 1px solid grey;
 }

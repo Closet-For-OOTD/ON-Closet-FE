@@ -8,7 +8,7 @@ export default function Outfit() {
   // ? 버튼 창 열리는 기준점
   const [clothId, setClothId] = useState("");
 
-  // ? Modal에서 button을 클릭한 경우
+  // ? OutfitModal에서 button을 클릭한 경우
   const [clickTop, setClickTop] = useState("");
   const [clickBottom, setClickBottom] = useState("");
   const [clickOuter, setClickOuter] = useState("");
@@ -41,6 +41,7 @@ export default function Outfit() {
     );
   }
 
+  // ! list !
   useEffect(() => {
     try {
       axios.get("/list").then((data) => setClothes(data));
@@ -79,12 +80,6 @@ export default function Outfit() {
 
   return (
     <>
-      <div className="box">
-        <span className="close-box TOP">{showCloth("TOP")}</span>
-        <span className="close-box BOTTOM">{showCloth("BOTTOM")}</span>
-        <span className="close-box OUTER">{showCloth("OUTER")}</span>
-        <span className="close-box SHOES">{showCloth("SHOES")}</span>
-      </div>
       <div className="oufitBox">
         <div className="right-box">
           <div id="face-box">

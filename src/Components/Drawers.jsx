@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import Closet from "./onlineCloset/Closet";
+import Test from "./checkOutfit/test";
+
 import {
   PiTShirtBold,
   PiPantsBold,
@@ -15,7 +18,6 @@ import {
   ListItemButton,
   ListItemText,
   Toolbar,
-  Typography,
 } from "@mui/material";
 
 export default function ResponsiveDrawer(props) {
@@ -23,9 +25,11 @@ export default function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
-
+      <Toolbar>
+        <h1>Closet</h1>
+      </Toolbar>
       <List>
+        {/* <Closet value="outfit" />
         {["TOP", "BOTTOM", "OUTER", "SHOES"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -41,6 +45,23 @@ export default function ResponsiveDrawer(props) {
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
+        ))} */}
+        <Closet modalvalue="outfit" />
+        {["TOP", "BOTTOM", "OUTER", "SHOES"].map((text, index) => (
+          // <ListItem key={text} disablePadding>
+          <ListItemButton>
+            {text === "TOP" ? (
+              <PiTShirtBold />
+            ) : text === "BOTTOM" ? (
+              <PiPantsBold />
+            ) : text === "OUTER" ? (
+              <PiCoatHangerBold />
+            ) : (
+              <PiBootBold />
+            )}
+            <ListItemText primary={text} />
+          </ListItemButton>
+          // </ListItem>
         ))}
       </List>
     </div>
@@ -57,9 +78,7 @@ export default function ResponsiveDrawer(props) {
         }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Check Your Outfit
-          </Typography>
+          <h1>Check Your Outfit</h1>
         </Toolbar>
       </AppBar>
       <Box
@@ -67,17 +86,6 @@ export default function ResponsiveDrawer(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        <Drawer
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
         <Drawer
           variant="permanent"
           sx={{
@@ -100,7 +108,7 @@ export default function ResponsiveDrawer(props) {
         }}
       >
         <Toolbar />
-        <Typography>내용작성</Typography>
+        <Test />
       </Box>
     </Box>
   );

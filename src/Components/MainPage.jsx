@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import mainLogo from "../assets/12.png";
-
 import Button from "@mui/material-next/Button";
 
 export default function MainPage() {

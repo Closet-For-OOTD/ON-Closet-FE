@@ -1,31 +1,7 @@
-.wrap {
-  margin: 30px;
-  width: auto;
-  height: auto;
-}
-
 .box {
   width: auto;
   height: 300px;
   display: flex;
-}
-
-.top {
-  background-color: rgb(221, 197, 197);
-  width: 300px;
-}
-
-.bottom {
-  background-color: rgb(160, 184, 125);
-  width: 300px;
-}
-.outer {
-  background-color: rgb(98, 111, 207);
-  width: 300px;
-}
-.shoes {
-  background-color: rgb(205, 138, 192);
-  width: 300px;
 }
 
 .oufitBox {
