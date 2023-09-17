@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "./components/MainPage";
 import ClothUpload from "./components/ClothUpload";
 import Outfit from "./components/Outfit";
+import Test from "./components/Test";
 
 function App() {
   return (

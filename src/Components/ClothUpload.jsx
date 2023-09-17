@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Closet from "./Closet";
+import "./ClothUpload.css";
 // Grid
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
+import { Box, Paper, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
-// select
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 
 export default function ClothUpload() {
   const [selected, setSelected] = useState("");
@@ -52,14 +46,13 @@ export default function ClothUpload() {
   }));
 
   return (
-    <>
+    <div className="wrap">
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <Item>
-              <div>Upload</div>
-              <br />
-              <br />
+              <div className="title">Clothes Upload</div>
+
               <div>
                 <form
                   action="/upload"
@@ -67,11 +60,14 @@ export default function ClothUpload() {
                   encType="multipart/form-data"
                   onSubmit={onSubmitHandler}
                 >
-                  <label>Choose Image : </label>
-                  <input type="file" name="myfile" />
+                  <label style={{ marginLeft: 10 }}>
+                    Choose Image :
+                    <input type="file" name="myfile" />
+                  </label>
+                  <br />
                   <label>
                     Cloth Type:
-                    {/* <select
+                    <select
                       className="clothType"
                       value={selected}
                       name="clothingType"
@@ -81,29 +77,9 @@ export default function ClothUpload() {
                       <option value="BOTTOM">BOTTOM</option>
                       <option value="OUTER">OUTER</option>
                       <option value="SHOES">SHOES</option>
-                    </select> */}
-                    <Box sx={{ minWidth: 120 }}>
-                      <FormControl sx={{ minWidth: 20 }}>
-                        <InputLabel id="select-label">clothType</InputLabel>
-                        <Select
-                          className="clothType"
-                          labelId="select-label"
-                          label="label"
-                          id="demo-simple-select"
-                          value={selected}
-                          name="clothingType"
-                          onChange={changeSelect}
-                        >
-                          <MenuItem value="TOP">TOP</MenuItem>
-                          <MenuItem value="BOTTOM">BOTTOM</MenuItem>
-                          <MenuItem value="OUTER">OUTER</MenuItem>
-                          <MenuItem value="SHOES">SHOES</MenuItem>
-                        </Select>
-                      </FormControl>
-                    </Box>
+                    </select>
                   </label>
                   <p style={{ color: "lightgrey" }}>
-                    {" "}
                     * 이미지 파일만 업로드 가능합니다.
                   </p>
                   <input type="submit" onClick={submitClick} />
@@ -118,6 +94,6 @@ export default function ClothUpload() {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </div>
   );
 }

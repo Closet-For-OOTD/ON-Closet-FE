@@ -20,7 +20,7 @@ export default function MainPage() {
           size="large"
           variant="outlined"
         >
-          ♡ ADD CLOTHES
+          ADD CLOTHES
         </Button>
       </Link>
     </>
