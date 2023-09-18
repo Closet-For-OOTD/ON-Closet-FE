@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
-export default function Modal({ id, type, image, save }) {
+export default function Modal({ id, type, image }) {
+  const saveImage = (imageId, imageType, imageFile) => {
+    try {
+      const { data } = axios.post("/uploadOutfit", {
+        value: { id: imageId, type: imageType, img: imageFile },
+      });
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   const clickPutOn = () => {
-    save(id, type, image);
+    saveImage(id, type, image);
     alert(`${type}이 착용되었습니다.`);
     window.location.reload();
   };
+
   const clickCancel = () => {
     id = null;
     alert("취소" + id);

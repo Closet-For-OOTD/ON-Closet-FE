@@ -1,6 +1,8 @@
 import React from "react";
 import Closet from "./onlineCloset/Closet";
 import Test from "./checkOutfit/test";
+import Outfit from "./checkOutfit/Outfit";
+import axios from "axios";
 
 import {
   PiTShirtBold,
@@ -20,9 +22,8 @@ import {
   Toolbar,
 } from "@mui/material";
 
-export default function ResponsiveDrawer(props) {
+export default function CheckOutfit(props) {
   const drawerWidth = 340;
-
   const drawer = (
     <div>
       <Toolbar>
@@ -108,6 +109,7 @@ export default function ResponsiveDrawer(props) {
         }}
       >
         <Toolbar />
+        {/* <Outfit /> */}
         <Test />
       </Box>
     </Box>

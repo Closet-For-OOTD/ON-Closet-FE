@@ -5,7 +5,7 @@ import MainPage from "./components/MainPage";
 import Outfit from "./components/checkOutfit/Outfit";
 import Test from "./components/checkOutfit/test";
 import MakeCloset from "./components/MakeCloset";
-import Drawers from "./components/Drawers";
+import CheckOutfit from "./components/CheckOutfit";
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/upload" element={<MakeCloset />} />
-          <Route path="/outfit" element={<Test />} />
-          <Route path="result" element={<Drawers />} />
+          <Route path="/outfit" element={<Outfit />} />
+          <Route path="result" element={<CheckOutfit />} />
         </Routes>
       </BrowserRouter>
     </>

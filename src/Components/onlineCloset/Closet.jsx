@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Closet.css";
 import ClosetModal from "../ClosetModal";
 import OutfitModal from "../OutfitModal";
+import "./Closet.css";
 
 import { ImageList, ImageListItem } from "@mui/material";
 
 export default function Closet(props) {
   const [clothes, setClothes] = useState("");
 
-  // ? Modal 열릴때 끌릭된 이미지 파일의 id 값
+  // ? Modal 열릴때 클릭된 이미지 파일의 id 값
   const [clothId, setClothId] = useState("");
 
   useEffect(() => {
@@ -38,13 +38,13 @@ export default function Closet(props) {
                   <ClosetModal
                     id={cloth.id}
                     type={cloth.type}
-                    image={cloth.image}
+                    image={cloth.img}
                   />
                 ) : props.modalvalue === "outfit" && clothId === cloth.id ? (
                   <OutfitModal
                     id={cloth.id}
                     type={cloth.type}
-                    image={cloth.image}
+                    image={cloth.img}
                   />
                 ) : null}
               </ImageListItem>
@@ -54,7 +54,6 @@ export default function Closet(props) {
       )
     );
   }
-  console.log(":::", props.classvalue);
 
   return (
     <>
