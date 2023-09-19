@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ClosetModal from "../ClosetModal";
-import OutfitModal from "../OutfitModal";
+import ClosetModal from "../../modal/ClosetModal";
+import OutfitModal from "../../modal/OutfitModal";
 import "./Closet.css";
 
 import { ImageList, ImageListItem } from "@mui/material";

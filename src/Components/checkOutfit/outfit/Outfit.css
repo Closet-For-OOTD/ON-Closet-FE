@@ -1,9 +1,3 @@
-.box {
-  width: auto;
-  height: 300px;
-  display: flex;
-}
-
 .oufitBox {
   background-color: lightblue;
   margin: 30px;

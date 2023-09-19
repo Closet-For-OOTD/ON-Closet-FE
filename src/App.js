@@ -2,10 +2,9 @@ import "./App.css";
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "./components/MainPage";
-import Outfit from "./components/checkOutfit/Outfit";
-import Test from "./components/checkOutfit/test";
-import MakeCloset from "./components/MakeCloset";
-import CheckOutfit from "./components/CheckOutfit";
+import Outfit from "./components/checkOutfit//outfit/Outfit";
+import MakeCloset from "./components/makeCloset/MakeCloset";
+import CheckOutfit from "./components/checkOutfit/CheckOutfit";
 
 function App() {
   return (
@@ -14,8 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/upload" element={<MakeCloset />} />
-          <Route path="/outfit" element={<Outfit />} />
-          <Route path="result" element={<CheckOutfit />} />
+          <Route path="/outfit" element={<CheckOutfit />} />
+          <Route path="result" element={<Outfit />} />
         </Routes>
       </BrowserRouter>
     </>

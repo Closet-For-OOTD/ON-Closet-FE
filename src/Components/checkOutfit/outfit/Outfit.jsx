@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Outfit.css";
-import OutfitModal from "../OutfitModal";
 
 export default function Outfit(props) {
   const [clickTop, setClickTop] = useState("");
