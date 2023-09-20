@@ -1,50 +1,58 @@
 .oufitBox {
   background-color: lightblue;
-  margin: 30px;
-  height: 800px;
-  line-height: 100px;
+  width: 700px;
+}
+.left-box {
+  margin: 100px 0px;
+  float: left;
+}
+#outer-box > img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .right-box {
   margin: 20px;
-  background-color: beige;
-  height: 600px;
   width: 200px;
   float: right;
 }
-
 #face-box {
-  background-color: grey;
-  margin: 20px;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 120px;
+  height: 130px;
 }
+#face-box > img {
+  width: 120px;
+  height: 150px;
+}
+
 #top-box {
-  margin: 20px;
-  background-color: grey;
-  width: 100px;
-  height: 100px;
-}
-#bottom-box {
-  margin: 20px;
-  background-color: grey;
-  width: 100px;
-  height: 200px;
-}
-#shoes-box {
-  margin: 20px;
-  background-color: grey;
-  width: 100px;
-  height: 100px;
-}
-
-.left-box {
-  background-color: lightseagreen;
-  height: 400px;
+  margin: 0px;
   width: 200px;
-  float: left;
+  height: 250px;
+}
+#top-box > img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
 }
 
-/* #outerbox {
-  } */
+#bottom-box {
+  width: 200px;
+  height: auto;
+}
+#bottom-box > img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+#shoes-box {
+  width: 200px;
+  height: 150px;
+}
+#shoes-box > img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}

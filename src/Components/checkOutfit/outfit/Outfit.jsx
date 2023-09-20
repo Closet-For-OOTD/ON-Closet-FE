@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Outfit.css";
-
+import wface from "../../../assets/wface.png";
 export default function Outfit(props) {
   const [clickTop, setClickTop] = useState("");
   const [clickBottom, setClickBottom] = useState("");
@@ -30,11 +30,14 @@ export default function Outfit(props) {
       <div className="oufitBox">
         <div className="right-box">
           <div id="face-box">
-            FACE
-            <img src="" alt="" />
+            <img src={wface} alt="" />
           </div>
           <div id="top-box">
-            <img value="TOP" src={clickTop} alt="" />
+            <img
+              // value="TOP"
+              src={clickTop}
+              alt=""
+            />
           </div>
           <div id="bottom-box">
             <img src={clickBottom} alt="" />

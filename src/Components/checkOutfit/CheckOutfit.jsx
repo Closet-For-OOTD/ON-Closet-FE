@@ -107,7 +107,6 @@ export default function CheckOutfit(props) {
         }}
       >
         <Toolbar />
-        {/* <Outfit /> */}
         <Outfit />
       </Box>
     </Box>
