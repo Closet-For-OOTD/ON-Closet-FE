@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
+import Modal from "./MyModal";
 
-export default function Modal({ id, type, image }) {
+export default function OutfitModal({ id, type, image, close }) {
   const saveImage = (imageId, imageType, imageFile) => {
     try {
       const { data } = axios.post("/uploadOutfit", {
@@ -20,8 +21,7 @@ export default function Modal({ id, type, image }) {
   };
 
   const clickCancel = () => {
-    id = null;
-    alert("취소" + id);
+    close();
   };
   const clickDelete = (e) => {
     console.log(e.target.id);
@@ -38,14 +38,15 @@ export default function Modal({ id, type, image }) {
 
   return (
     <div>
+      <Modal />
       <button id={id} onClick={clickPutOn}>
         착용
       </button>
-      <button id={id} onClick={clickCancel}>
-        취소
-      </button>
       <button id={id} onClick={clickDelete}>
         삭제
+      </button>
+      <button id={id} onClick={clickCancel}>
+        취소
       </button>
     </div>
   );

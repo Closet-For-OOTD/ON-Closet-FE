@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-export default function Modal({ id }) {
+export default function ClosetModal({ id, close }) {
   const clickDelete = (e) => {
     console.log(e.target.id);
     const removeid = e.target.id;
@@ -15,10 +15,17 @@ export default function Modal({ id }) {
     }
   };
 
+  const clickCancel = () => {
+    close();
+  };
+
   return (
     <div>
       <button id={id} onClick={clickDelete}>
         삭제
+      </button>
+      <button id={id} onClick={clickCancel}>
+        취소
       </button>
     </div>
   );

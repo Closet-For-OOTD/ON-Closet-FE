@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ClosetModal from "../../modal/ClosetModal";
-import OutfitModal from "../../modal/OutfitModal";
+import MyModal from "../../modal/MyModal";
+
 import "./Closet.css";
 
 import { ImageList, ImageListItem } from "@mui/material";
@@ -12,10 +12,18 @@ export default function Closet(props) {
   // ? Modal 열릴때 클릭된 이미지 파일의 id 값
   const [clothId, setClothId] = useState("");
 
+  // ? Modal 설정
+  const [isOpen, setIsOpen] = useState(false);
+  const modalClose = () => {
+    setIsOpen(false);
+  };
+
   useEffect(() => {
     try {
       axios.get("/list").then((data) => setClothes(data));
-    } catch (e) {}
+    } catch (e) {
+      alert(e); // ! check error -> 배포전 수정(console로)
+    }
   }, []);
 
   function showCloth(value) {
@@ -30,21 +38,20 @@ export default function Closet(props) {
                   srcSet={`${cloth.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                   alt="cloth"
                   loading="lazy"
-                  onClick={() => setClothId(cloth.id)}
+                  onClick={() => {
+                    setClothId(cloth.id);
+                    setIsOpen(true);
+                  }}
                   style={{ cursor: "pointer" }}
                 />
-
-                {props.modalvalue === "makeCloset" && clothId === cloth.id ? (
-                  <ClosetModal
+                {clothId === cloth.id ? (
+                  <MyModal
+                    isopen={isOpen}
+                    closemodal={modalClose}
                     id={cloth.id}
                     type={cloth.type}
                     image={cloth.img}
-                  />
-                ) : props.modalvalue === "outfit" && clothId === cloth.id ? (
-                  <OutfitModal
-                    id={cloth.id}
-                    type={cloth.type}
-                    image={cloth.img}
+                    modalvalue={props.modalvalue}
                   />
                 ) : null}
               </ImageListItem>

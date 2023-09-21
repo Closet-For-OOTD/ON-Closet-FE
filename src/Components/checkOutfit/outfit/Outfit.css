@@ -27,8 +27,8 @@
 }
 
 #top-box {
-  margin: 0px;
-  width: 200px;
+  /* margin: 0px; */
+  /* width: 200px; */
   height: 250px;
 }
 #top-box > img {
