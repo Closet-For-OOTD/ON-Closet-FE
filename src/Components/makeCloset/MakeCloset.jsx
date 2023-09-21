@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Closet from "./onlineCloset/Closet";
 import ClothUpload from "./uploadClothes/ClothUpload";
+import CustomButton from "../button/CustomButton";
 
 import { Box, Paper, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Button from "@mui/material-next/Button";
 
 export default function MakeCloset() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -33,15 +33,7 @@ export default function MakeCloset() {
             />
             <div className="button">
               <Link to="/outfit">
-                <Button
-                  style={{ fontFamily: "GoryeongStrawberry" }}
-                  color="secondary"
-                  disabled={false}
-                  size="large"
-                  variant="outlined"
-                >
-                  ♡ ON - Closet
-                </Button>
+                <CustomButton content="♡ ON - Closet" />
               </Link>
             </div>
           </Item>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import mainLogo from "../assets/mainImage.png";
-import Button from "@mui/material-next/Button";
+import CustomButton from "./button/CustomButton";
 
 export default function MainPage() {
   return (
@@ -12,15 +12,7 @@ export default function MainPage() {
       <img src={mainLogo} alt="" style={{ width: "400px" }} />
       <br />
       <Link to="/upload">
-        <Button
-          style={{ fontFamily: "GoryeongStrawberry" }}
-          color="secondary"
-          disabled={false}
-          size="large"
-          variant="outlined"
-        >
-          ADD CLOTHES
-        </Button>
+        <CustomButton content="ADD clothes" />
       </Link>
     </>
   );

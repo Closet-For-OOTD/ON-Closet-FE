@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import CustomButton from "../button/CustomButton";
 
 export default function ClosetModal({ id, close }) {
   const clickDelete = (e) => {
@@ -21,12 +22,10 @@ export default function ClosetModal({ id, close }) {
 
   return (
     <div>
-      <button id={id} onClick={clickDelete}>
-        삭제
-      </button>
-      <button id={id} onClick={clickCancel}>
-        취소
-      </button>
+      <div>선택한 이미지를 삭제하시겠습니까?</div>
+      <CustomButton content="삭제" id={id} onClick={clickDelete} />
+
+      <CustomButton content="취소" id={id} onClick={clickCancel} />
     </div>
   );
 }

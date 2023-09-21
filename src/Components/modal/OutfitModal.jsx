@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Modal from "./MyModal";
+import CustomButton from "../button/CustomButton";
 
 export default function OutfitModal({ id, type, image, close }) {
   const saveImage = (imageId, imageType, imageFile) => {
@@ -39,15 +40,10 @@ export default function OutfitModal({ id, type, image, close }) {
   return (
     <div>
       <Modal />
-      <button id={id} onClick={clickPutOn}>
-        착용
-      </button>
-      <button id={id} onClick={clickDelete}>
-        삭제
-      </button>
-      <button id={id} onClick={clickCancel}>
-        취소
-      </button>
+      <div>이미지의 Outfit을 확인하시겠습니까?</div>
+      <CustomButton content="착용" id={id} onClick={clickPutOn} />
+      <CustomButton content="삭제" id={id} onClick={clickDelete} />
+      <CustomButton content="취소" id={id} onClick={clickCancel} />
     </div>
   );
 }
