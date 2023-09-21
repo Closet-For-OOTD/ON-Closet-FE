@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Outfit.css";
 import wface from "../../../assets/wface.png";
+import err from "../../../assets/onerror.png";
+
 export default function Outfit(props) {
   const [clickTop, setClickTop] = useState("");
   const [clickBottom, setClickBottom] = useState("");
@@ -25,6 +27,10 @@ export default function Outfit(props) {
     }
   });
 
+  const handleError = (e) => {
+    e.target.src = err;
+  };
+
   return (
     <>
       <div className="oufitBox">
@@ -37,18 +43,19 @@ export default function Outfit(props) {
               // value="TOP"
               src={clickTop}
               alt=""
+              onError={handleError}
             />
           </div>
           <div id="bottom-box">
-            <img src={clickBottom} alt="" />
+            <img src={clickBottom} alt="" onError={handleError} />
           </div>
           <div id="shoes-box">
-            <img src={clickShoes} alt="" />
+            <img src={clickShoes} alt="" onError={handleError} />
           </div>
         </div>
         <div className="left-box">
           <div id="outer-box">
-            <img src={clickOuter} alt="" />
+            <img src={clickOuter} alt="" onError={handleError} />
           </div>
         </div>
       </div>
