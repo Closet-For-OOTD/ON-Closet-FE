@@ -30,16 +30,19 @@ export default function MyModal({
       <Modal open={isopen} onClose={closemodal}>
         <Box sx={{ ...style, width: 400 }}>
           {modalvalue === "outfit" ? (
-            <div>
-              <OutfitModal
-                id={id}
-                type={type}
-                image={image}
-                close={closemodal}
-              />
-            </div>
+            <OutfitModal
+              id={id}
+              type={type}
+              image={image}
+              closemodal={closemodal}
+            />
           ) : (
-            <ClosetModal id={id} type={type} image={image} close={closemodal} />
+            <ClosetModal
+              id={id}
+              type={type}
+              image={image}
+              closemodal={closemodal}
+            />
           )}
         </Box>
       </Modal>

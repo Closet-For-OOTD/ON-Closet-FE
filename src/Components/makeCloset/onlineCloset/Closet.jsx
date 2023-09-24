@@ -43,7 +43,7 @@ export default function Closet(props) {
                     setIsOpen(true);
                   }}
                   style={{ cursor: "pointer" }}
-                />
+                ></img>
                 {clothId === cloth.id ? (
                   <MyModal
                     isopen={isOpen}
