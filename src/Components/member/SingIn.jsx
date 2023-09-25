@@ -7,30 +7,6 @@ export default function SignIn() {
   const pwCheckRef = useRef();
 
   const handleSignin = () => {
-    if (idRef.current.value === "" || idRef.current.value === undefined) {
-      alert("아이디를 입력하세요");
-      idRef.current.focus();
-      return false;
-    }
-    if (pwRef.current.value === "" || pwRef.current.value === undefined) {
-      alert("비밀번호를 입력하세요");
-      pwRef.current.focus();
-      return false;
-    }
-    if (
-      pwCheckRef.current.value === "" ||
-      pwCheckRef.current.value === undefined
-    ) {
-      alert("비밀번호 확인을 입력해주세요.");
-      pwCheckRef.current.focus();
-      return false;
-    }
-    if (pwCheckRef.current.value !== pwRef.current.value) {
-      alert("비밀번호가 다릅니다.");
-      pwCheckRef.current.focus();
-      return false;
-    }
-
     axios
       .post("/signin", {
         id: idRef.current.value,

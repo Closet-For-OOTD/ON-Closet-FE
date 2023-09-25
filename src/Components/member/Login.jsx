@@ -11,13 +11,14 @@ export default function Login() {
         pw: pwRef.current.value,
       })
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
         if (res.data.isLogin === "True") {
-          // ! 여기 생각 -> 메인 페이지로 이동
           alert("로그인되었습니다");
+          // ! 여기 생각 -> 메인 페이지로 이동
         } else {
-          // ! 여기도 생각 -> 틀리면 어디로 보낼건데?
-          alert("로그인 실패!");
+          alert(res.data.isLogin);
+          idRef.current.value = "";
+          pwRef.current.value = "";
         }
       })
       .catch((e) => {
