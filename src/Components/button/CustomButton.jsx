@@ -21,7 +21,7 @@ export default function CustomButton({ content, id, type, img, closemodal }) {
   };
 
   const clickCancel = () => {
-    closemodal();
+    // closemodal();
   };
   const clickDelete = (e) => {
     console.log(e.target.id);
@@ -51,7 +51,7 @@ export default function CustomButton({ content, id, type, img, closemodal }) {
           ? clickDelete
           : clickCancel
       }
-      close={content === "취소" ? closemodal : null}
+      // close={content === "취소" ? closemodal : null}
     >
       {content}
     </Button>

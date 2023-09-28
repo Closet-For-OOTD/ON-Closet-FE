@@ -1,20 +1,22 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function SignIn() {
-  const idRef = useRef();
-  const pwRef = useRef();
-  const pwCheckRef = useRef();
+export default function SignIn({ setmode }) {
+  const navigate = useNavigate();
+
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+  const [pwCheck, setPwCheck] = useState("");
 
   const handleSignin = () => {
     axios
       .post("/signin", {
-        id: idRef.current.value,
-        pw: pwRef.current.value,
-        pwCheck: pwCheckRef.current.value,
+        id: id,
+        pw: pw,
+        pwCheck: pwCheck,
       })
       .then((res) => {
-        console.log(res);
         if (res.data.isSuccess === "True") {
           alert("회원가입이 완료되었습니다.");
         } else {
@@ -35,9 +37,9 @@ export default function SignIn() {
           type="text"
           name="id"
           size="20"
-          ref={idRef}
+          value={id}
+          onChange={(e) => setId(e.target.value)}
           placeholder="아이디를 입력하세요"
-          defaultValue=""
         />
         <br />
         <label>PW:</label>
@@ -45,10 +47,10 @@ export default function SignIn() {
           type="password"
           name="pw"
           size="20"
-          ref={pwRef}
+          value={pw}
+          onChange={(e) => setPw(e.target.value)}
           autoComplete="on"
           placeholder="비밀번호를 입력하세요"
-          defaultValue=""
         />
         <br />
         <label>PW CHECK:</label>
@@ -56,9 +58,9 @@ export default function SignIn() {
           type="password"
           name="pwCheck"
           size="20"
-          ref={pwCheckRef}
+          value={pwCheck}
+          onChange={(e) => setPwCheck(e.target.value)}
           placeholder="비밀번호를 확인해주세요"
-          defaultValue=""
         />
         <br />
         <input type="button" value="회원가입" onClick={handleSignin} />
