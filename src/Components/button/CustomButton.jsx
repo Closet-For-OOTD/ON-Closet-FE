@@ -3,10 +3,11 @@ import axios from "axios";
 import Button from "@mui/material-next/Button";
 
 export default function CustomButton({ content, id, type, img, closemodal }) {
+  const userId = localStorage.getItem("userId");
   const saveImage = (imageId, imageType, imageFile) => {
     try {
       const { data } = axios.post("/uploadOutfit", {
-        value: { id: imageId, type: imageType, img: imageFile },
+        value: { id: imageId, type: imageType, img: imageFile, userId: userId },
       });
       return data;
     } catch (e) {
@@ -21,7 +22,7 @@ export default function CustomButton({ content, id, type, img, closemodal }) {
   };
 
   const clickCancel = () => {
-    // closemodal();
+    closemodal();
   };
   const clickDelete = (e) => {
     console.log(e.target.id);
@@ -51,7 +52,7 @@ export default function CustomButton({ content, id, type, img, closemodal }) {
           ? clickDelete
           : clickCancel
       }
-      // close={content === "취소" ? closemodal : null}
+      close={content === "취소" ? closemodal : null}
     >
       {content}
     </Button>

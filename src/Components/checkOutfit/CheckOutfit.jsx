@@ -1,24 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Closet from "../makeCloset/onlineCloset/Closet";
 import Outfit from "./outfit/Outfit";
-
-// import {
-//   PiTShirtBold,
-//   PiPantsBold,
-//   PiCoatHangerBold,
-//   PiBootBold,
-// } from "react-icons/pi";
-import {
-  AppBar,
-  Box,
-  CssBaseline,
-  Drawer,
-  List,
-  // ListItem,
-  // ListItemButton,
-  // ListItemText,
-  Toolbar,
-} from "@mui/material";
+import CustomButton from "../button/CustomButton";
+import { Box, Drawer, List, Toolbar } from "@mui/material";
 
 export default function CheckOutfit(props) {
   const drawerWidth = 340;
@@ -28,58 +13,16 @@ export default function CheckOutfit(props) {
         <h1>Closet</h1>
       </Toolbar>
       <List>
-        {/* <Closet value="outfit" />
-        {["TOP", "BOTTOM", "OUTER", "SHOES"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              {text === "TOP" ? (
-                <PiTShirtBold />
-              ) : text === "BOTTOM" ? (
-                <PiPantsBold />
-              ) : text === "OUTER" ? (
-                <PiCoatHangerBold />
-              ) : (
-                <PiBootBold />
-              )}
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))} */}
+        <Link to="/upload">
+          <CustomButton content="Add Cloth" />
+        </Link>
         <Closet modalvalue="outfit" />
-        {/* {["TOP", "BOTTOM", "OUTER", "SHOES"].map((text, index) => (
-          // <ListItem key={text} disablePadding>
-          <ListItemButton>
-            {text === "TOP" ? (
-              <PiTShirtBold />
-            ) : text === "BOTTOM" ? (
-              <PiPantsBold />
-            ) : text === "OUTER" ? (
-              <PiCoatHangerBold />
-            ) : (
-              <PiBootBold />
-            )}
-            <ListItemText primary={text} />
-          </ListItemButton>
-          // </ListItem>
-        ))} */}
       </List>
     </div>
   );
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-        <Toolbar>
-          <h1>Check Your Outfit</h1>
-        </Toolbar>
-      </AppBar>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -98,6 +41,7 @@ export default function CheckOutfit(props) {
           {drawer}
         </Drawer>
       </Box>
+
       <Box
         component="main"
         sx={{
@@ -106,7 +50,6 @@ export default function CheckOutfit(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <Toolbar />
         <Outfit />
       </Box>
     </Box>

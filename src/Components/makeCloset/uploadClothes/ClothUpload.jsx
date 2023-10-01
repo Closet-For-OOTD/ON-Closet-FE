@@ -3,6 +3,7 @@ import axios from "axios";
 import "./ClothUpload.css";
 
 export default function ClothUpload() {
+  const userId = localStorage.getItem("userId");
   const [selected, setSelected] = useState("");
   const changeSelect = (event) => {
     setSelected(event.target.value);
@@ -29,6 +30,7 @@ export default function ClothUpload() {
     const formData = new FormData();
     formData.append("myfile", myfile);
     formData.append("clothingType", myselect);
+    formData.append("userId", userId);
     sendFile(formData);
   };
 
@@ -44,12 +46,11 @@ export default function ClothUpload() {
         >
           <div className="choose-box">
             <label>
-              Choose Image :
-              <input type="file" name="myfile" />
+              Image : <input type="file" name="myfile" />
             </label>
             <br />
             <label>
-              Cloth Type:
+              Type :
               <select
                 className="clothType"
                 value={selected}
@@ -63,9 +64,7 @@ export default function ClothUpload() {
               </select>
             </label>
           </div>
-          <p style={{ color: "lightgrey" }}>
-            * 이미지 파일만 업로드 가능합니다.
-          </p>
+
           <input type="submit" onClick={submitClick} />
         </form>
       </div>

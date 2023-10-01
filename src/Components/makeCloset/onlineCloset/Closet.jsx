@@ -7,6 +7,7 @@ import "./Closet.css";
 import { ImageList, ImageListItem } from "@mui/material";
 
 export default function Closet(props) {
+  const userId = localStorage.getItem("userId");
   const [clothes, setClothes] = useState("");
 
   // ? Modal 열릴때 클릭된 이미지 파일의 id 값
@@ -20,18 +21,18 @@ export default function Closet(props) {
 
   useEffect(() => {
     try {
-      axios.get("/list").then((data) => setClothes(data));
+      axios.get(`/list`).then((data) => setClothes(data));
     } catch (e) {
-      alert(e); // ! check error -> 배포전 수정(console로)
+      console.log(e);
     }
   }, []);
-
+  console.log(userId);
   function showCloth(value) {
     return (
       clothes.data && (
         <ImageList sx={{ width: 200, height: 200 }} cols={1} rowheight={164}>
           {clothes.data?.map((cloth) =>
-            cloth.type === value ? (
+            cloth.type === value && cloth.userId === userId ? (
               <ImageListItem key={cloth.id + cloth.type}>
                 <img
                   src={`${cloth.img}?w=164&h=164&fit=crop&auto=format`}

@@ -2,15 +2,15 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MainPage from "./components/MainPage";
-import MakeCloset from "./components/makeCloset/MakeCloset";
-import CheckOutfit from "./components/checkOutfit/CheckOutfit";
+import PrivateCloset from "./components/makeCloset/PrivateCloset";
+import PrivateCheckOutfit from "./components/checkOutfit/PrivateCheckOutfit";
 import SignIn from "./components/member/SignIn";
 import Login from "./components/member/Login";
 import axios from "axios";
 
 function App() {
   const [isLog, setIsLog] = useState("");
-
+  const userId = localStorage.getItem("userID");
   useEffect(() => {
     axios.get("/authcheck").then((res) => {
       if (res.data.isLogin === "True") {
@@ -20,7 +20,8 @@ function App() {
       }
     });
   }, []);
-  console.log("언제:", isLog);
+  console.log("로그인 여부", isLog);
+  console.log("아이디가 뭐니", userId);
 
   return (
     <>
@@ -32,9 +33,10 @@ function App() {
             <Route path="/" element={<Login setLog={setIsLog} />} />
           )}
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/upload_cloth" element={<MakeCloset />} />
-          {/* <Route path="/{userId}/upload_cloth" element={<MakeCloset />} /> */}
-          <Route path="/{userId}/outfit" element={<CheckOutfit />} />
+          <Route path={"/upload"} element={<PrivateCloset />} />
+          {/* <Route path={`/upload/:${userId}`} element={<MakeCloset />} /> */}
+          <Route path={"/outfit"} element={<PrivateCheckOutfit />} />
+          {/* <Route path={`/outfit/:${userId}`} element={<CheckOutfit />} /> */}
         </Routes>
       </BrowserRouter>
     </>
