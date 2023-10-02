@@ -1,3 +1,2 @@
-# OOTD-FE
-
-나만의 옷장 미니프로젝트 FE
+# ON-Closet-FE
+OnLine Closet 토이프로젝트 FE
