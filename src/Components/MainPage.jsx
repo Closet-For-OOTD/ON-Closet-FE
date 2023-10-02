@@ -8,9 +8,7 @@ export default function MainPage({ user }) {
   return (
     <>
       <Header />
-      <div style={{ fontFamily: "TTTtangsbudaejjigaeB", fontSize: 150 }}>
-        OOTD
-      </div>
+      <div style={{ fontSize: 100 }}>ON-Closet</div>
       <img src={mainLogo} alt="" style={{ width: "400px" }} />
       <br />
       <span style={{ margin: "30px" }}>

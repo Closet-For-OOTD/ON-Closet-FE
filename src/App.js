@@ -20,8 +20,6 @@ function App() {
       }
     });
   }, []);
-  console.log("로그인 여부", isLog);
-  console.log("아이디가 뭐니", userId);
 
   return (
     <>

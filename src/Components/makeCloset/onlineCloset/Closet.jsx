@@ -26,7 +26,7 @@ export default function Closet(props) {
       console.log(e);
     }
   }, []);
-  console.log(userId);
+
   function showCloth(value) {
     return (
       clothes.data && (

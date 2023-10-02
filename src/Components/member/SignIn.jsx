@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./Signin.css";
 import axios from "axios";
 
 export default function SignIn({ setmode }) {
-  const navigate = useNavigate();
-
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
@@ -30,10 +29,12 @@ export default function SignIn({ setmode }) {
 
   return (
     <div>
+      <h1 className="title-signin">ON-Closet</h1>
       <h2>회원가입</h2>
       <form>
         <label>ID:</label>
         <input
+          className="signin"
           type="text"
           name="id"
           size="20"
@@ -44,6 +45,7 @@ export default function SignIn({ setmode }) {
         <br />
         <label>PW:</label>
         <input
+          className="signin"
           type="password"
           name="pw"
           size="20"
@@ -55,6 +57,7 @@ export default function SignIn({ setmode }) {
         <br />
         <label>PW CHECK:</label>
         <input
+          className="signin"
           type="password"
           name="pwCheck"
           size="20"
@@ -63,7 +66,22 @@ export default function SignIn({ setmode }) {
           placeholder="비밀번호를 확인해주세요"
         />
         <br />
-        <input type="button" value="회원가입" onClick={handleSignin} />
+        <input
+          className="btn-signin"
+          type="button"
+          value="회원가입"
+          onClick={handleSignin}
+        />
+        <p>
+          로그인하시겠습니까?
+          <Link to="/">
+            <input
+              className="btn-login-insignin"
+              type="button"
+              value="로그인"
+            />
+          </Link>
+        </p>
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import "./Login.css";
 import axios from "axios";
 
 export default function Login({ setLog, findUser }) {
@@ -25,21 +26,39 @@ export default function Login({ setLog, findUser }) {
 
   return (
     <div>
+      <h1 className="title-login">ON-Closet</h1>
       <h2>Login</h2>
       <form>
         <label>ID </label>
-        <input type="text" name="id" placeholder="아이디" ref={idRef} />
+        <input
+          className="login"
+          type="text"
+          name="id"
+          placeholder="아이디"
+          ref={idRef}
+        />
         <br />
         <label>PW </label>
-        <input type="password" name="pw" placeholder="비밀번호" ref={pwRef} />
+        <input
+          className="login"
+          type="password"
+          name="pw"
+          placeholder="비밀번호"
+          ref={pwRef}
+        />
         <br />
-        <input type="button" value="로그인" onClick={checkLoginClick} />
+        <input
+          className="btn"
+          type="button"
+          value="로그인"
+          onClick={checkLoginClick}
+        />
       </form>
 
       <p>
         계정이 없으신가요?
         <Link to="/signin">
-          <button>회원가입</button>
+          <button className="btn-signin-inlogin">회원가입</button>
         </Link>
       </p>
     </div>

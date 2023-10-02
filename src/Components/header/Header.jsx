@@ -11,7 +11,7 @@ export default function Header({ titlevalue, buttonvalue }) {
 
   return (
     <div className="header-box">
-      <AppBar position="fixed">
+      <AppBar position="fixed" style={{ backgroundColor: "rgb(68, 112, 67)" }}>
         <Toolbar>
           <h1
             className={titlevalue === "outfit-title" ? "outfit-title" : "title"}
