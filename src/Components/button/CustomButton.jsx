@@ -21,6 +21,7 @@ export default function CustomButton({ content, id, type, img, closemodal }) {
     window.location.reload();
   };
 
+  // ? closemodal는 부모인 Closet 컴포넌트에서 props로 전달한 값 -> 자체가 함수이기 때문에 함수로 만들어서 전달할 필요없음
   const clickCancel = closemodal;
 
   const clickDelete = (e) => {

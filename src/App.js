@@ -32,9 +32,7 @@ function App() {
           )}
           <Route path="/signin" element={<SignIn />} />
           <Route path={"/upload"} element={<PrivateCloset />} />
-          {/* <Route path={`/upload/:${userId}`} element={<MakeCloset />} /> */}
           <Route path={"/outfit"} element={<PrivateCheckOutfit />} />
-          {/* <Route path={`/outfit/:${userId}`} element={<CheckOutfit />} /> */}
         </Routes>
       </BrowserRouter>
     </>
