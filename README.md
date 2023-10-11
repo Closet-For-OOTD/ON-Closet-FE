@@ -8,7 +8,10 @@ OnLine Closet 토이프로젝트 FE
 
 ## 👚 기술스택
 ### ✨ Frontend
-<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> 
+<span>
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+<img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=Redux&logoColor=purple">
+</span>
  
 ###  ✨ Backend
 <span>
