@@ -9,10 +9,9 @@ import { Box, Paper, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export default function MakeCloset() {
-  const userId = localStorage.getItem("userId");
+  // const userId = localStorage.getItem("userId");
 
   const Item = styled(Paper)(({ theme }) => ({
-    // backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     backgroundColor: "#fff",
     padding: theme.spacing(1),
     textAlign: "center",

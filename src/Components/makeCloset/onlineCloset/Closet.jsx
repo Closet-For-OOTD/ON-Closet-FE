@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import MyModal from "../../modal/MyModal";
-
 import "./Closet.css";
-
 import { ImageList, ImageListItem } from "@mui/material";
 
 export default function Closet(props) {
+  const clothState = useSelector((state) => state.closetReducer);
+  const modalState = useSelector((state) => state.modalReducer);
+  const dispatch = useDispatch();
+
+  const clickCloth = clothState.clickClothId;
+  const clothInfo = clothState.clothInfo;
   const userId = localStorage.getItem("userId");
-  const [clothes, setClothes] = useState("");
-
-  // ? Modal 열릴때 클릭된 이미지 파일의 id 값
-  const [clothId, setClothId] = useState("");
-
-  // ? Modal 설정
-  const [isOpen, setIsOpen] = useState(false);
-  const modalClose = () => {
-    setIsOpen(false);
-  };
-
+  console.log(modalState);
   useEffect(() => {
     try {
-      axios.get(`/list`).then((data) => setClothes(data));
+      axios
+        .get(`/list`)
+        .then((data) => dispatch({ type: "GET_CLOTH_INFO", clothInfo: data }));
     } catch (e) {
       console.log(e);
     }
@@ -29,9 +26,9 @@ export default function Closet(props) {
 
   function showCloth(value) {
     return (
-      clothes.data && (
+      clothInfo.data && (
         <ImageList sx={{ width: 200, height: 200 }} cols={1} rowheight={164}>
-          {clothes.data?.map((cloth) =>
+          {clothInfo.data?.map((cloth) =>
             cloth.type === value && cloth.userId === userId ? (
               <ImageListItem key={cloth.id + cloth.type}>
                 <img
@@ -40,15 +37,16 @@ export default function Closet(props) {
                   alt="cloth"
                   loading="lazy"
                   onClick={() => {
-                    setClothId(cloth.id);
-                    setIsOpen(true);
+                    dispatch({ type: "CLICK_CLOTH", id: cloth.id });
+                    dispatch({
+                      type: "OPEN_MODAL",
+                      open: true,
+                    });
                   }}
                   style={{ cursor: "pointer" }}
                 ></img>
-                {clothId === cloth.id ? (
+                {clickCloth === cloth.id && modalState.modal_open ? (
                   <MyModal
-                    isopen={isOpen}
-                    closemodal={modalClose}
                     id={cloth.id}
                     type={cloth.type}
                     image={cloth.img}

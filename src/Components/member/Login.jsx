@@ -4,8 +4,6 @@ import "./Login.css";
 import axios from "axios";
 
 export default function Login({ setLog, findUser }) {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
   const idRef = useRef();
   const pwRef = useRef();
 

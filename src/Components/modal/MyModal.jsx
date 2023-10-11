@@ -1,48 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Box, Modal } from "@mui/material";
 import OutfitModal from "./OutfitModal";
 import ClosetModal from "./ClosetModal";
+import "./MyModal.css";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
+export default function MyModal({ modalvalue, id, type, image }) {
+  const modalState = useSelector((state) => state.modalReducer);
 
-export default function MyModal({
-  modalvalue,
-  isopen,
-  closemodal,
-  id,
-  type,
-  image,
-}) {
   return (
     <div>
-      <Modal open={isopen} onClose={closemodal}>
-        <Box sx={{ ...style, width: 400 }}>
+      <Modal open={modalState.modal_open}>
+        <Box className="box-style">
           {modalvalue === "outfit" ? (
-            <OutfitModal
-              id={id}
-              type={type}
-              image={image}
-              closemodal={closemodal}
-            />
+            <OutfitModal id={id} type={type} image={image} />
           ) : (
-            <ClosetModal
-              id={id}
-              type={type}
-              image={image}
-              closemodal={closemodal}
-            />
+            <ClosetModal id={id} type={type} image={image} />
           )}
         </Box>
       </Modal>

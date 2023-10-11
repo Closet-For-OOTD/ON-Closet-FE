@@ -1,8 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import Button from "@mui/material-next/Button";
 
-export default function CustomButton({ content, id, type, img, closemodal }) {
+export default function CustomButton({ content, id, type, img }) {
+  const dispatch = useDispatch();
+
   const userId = localStorage.getItem("userId");
   const saveImage = (imageId, imageType, imageFile) => {
     try {
@@ -21,8 +24,7 @@ export default function CustomButton({ content, id, type, img, closemodal }) {
     window.location.reload();
   };
 
-  // ? closemodal는 부모인 Closet 컴포넌트에서 props로 전달한 값 -> 자체가 함수이기 때문에 함수로 만들어서 전달할 필요없음
-  const clickCancel = closemodal;
+  const clickCancel = () => dispatch({ type: "OPEN_MODAL", open: false });
 
   const clickDelete = (e) => {
     console.log(e.target.id);
