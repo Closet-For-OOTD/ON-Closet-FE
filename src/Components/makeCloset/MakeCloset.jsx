@@ -4,13 +4,10 @@ import Closet from "./onlineCloset/Closet";
 import ClothUpload from "./uploadClothes/ClothUpload";
 import CustomButton from "../button/CustomButton";
 import Header from "../header/Header.jsx";
-
 import { Box, Paper, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export default function MakeCloset() {
-  // const userId = localStorage.getItem("userId");
-
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: "#fff",
     padding: theme.spacing(1),
@@ -25,16 +22,12 @@ export default function MakeCloset() {
         <Grid container spacing={2}>
           <Grid item xs={4}>
             <Item>
-              <ClothUpload classvalue="makecloset" />
+              <ClothUpload />
             </Item>
           </Grid>
           <Grid item xs={8}>
             <Item>
-              <Closet
-                modalvalue="makeCloset"
-                classvalue="mycloset"
-                style={{ display: "block" }}
-              />
+              <Closet />
               <Link to="/outfit">
                 <CustomButton content="♡ ON - Closet" />
               </Link>

@@ -27,7 +27,7 @@ export default function CustomButton({ content, id, type, img }) {
   const clickCancel = () => dispatch({ type: "OPEN_MODAL", open: false });
 
   const clickDelete = (e) => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     const removeid = e.target.id;
     try {
       const { data } = axios.delete("/delete", { data: { removeid } });

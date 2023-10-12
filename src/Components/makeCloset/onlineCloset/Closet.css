@@ -1,9 +1,9 @@
-.wrap-makecloset {
+.closet-makecloset {
   margin: 30px;
   height: auto;
   display: flex;
 }
-.wrap-outfitcloset {
+.closet-outfitcloset {
   margin: 30px;
   height: auto;
   display: block;

@@ -5,7 +5,7 @@ import Outfit from "./outfit/Outfit";
 import CustomButton from "../button/CustomButton";
 import { Box, Drawer, List, Toolbar } from "@mui/material";
 
-export default function CheckOutfit(props) {
+export default function CheckOutfit() {
   const drawerWidth = 340;
   const drawer = (
     <div>
@@ -16,7 +16,7 @@ export default function CheckOutfit(props) {
         <Link to="/upload">
           <CustomButton content="Add Cloth" />
         </Link>
-        <Closet modalvalue="outfit" />
+        <Closet />
       </List>
     </div>
   );

@@ -10,7 +10,7 @@ import axios from "axios";
 
 function App() {
   const [isLog, setIsLog] = useState("");
-  const userId = localStorage.getItem("userID");
+  const userId = localStorage.getItem("userId");
   // useEffect로 login 여부 체크시 한번만 체크하면 되는지 생각해보기!
   useEffect(() => {
     axios.get("/authcheck").then((res) => {

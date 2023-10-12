@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./components/redux/store/store";
+import { LoginProvier } from "./components/redux/context/loginContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
-    <App />
+    <LoginProvier>
+      <App />
+    </LoginProvier>
   </Provider>
 );
 

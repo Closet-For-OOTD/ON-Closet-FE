@@ -26,7 +26,7 @@ export default function ClothUpload() {
     event.preventDefault();
     const myfile = event.target.myfile.files[0];
     const myselect = event.target.clothingType.value;
-    console.log(event.target.myfile.files);
+    // console.log(event.target.myfile.files);
     const formData = new FormData();
     formData.append("myfile", myfile);
     formData.append("clothingType", myselect);
@@ -46,7 +46,8 @@ export default function ClothUpload() {
         >
           <div className="choose-box">
             <label>
-              Image : <input type="file" name="myfile" />
+              Image :{" "}
+              <input type="file" name="myfile" style={{ width: "200px" }} />
             </label>
             <br />
             <label>
@@ -56,6 +57,7 @@ export default function ClothUpload() {
                 value={selected}
                 name="clothingType"
                 onChange={changeSelect}
+                style={{ width: "200px" }}
               >
                 <option value="TOP">TOP</option>
                 <option value="BOTTOM">BOTTOM</option>

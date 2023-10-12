@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 
-export default function Login({ setLog, findUser }) {
+export default function Login({ setLog }) {
+  const dispatch = useDispatch();
   const idRef = useRef();
   const pwRef = useRef();
 
@@ -11,9 +13,9 @@ export default function Login({ setLog, findUser }) {
     axios
       .post("/login", { id: idRef.current.value, pw: pwRef.current.value })
       .then((res) => {
-        console.log(res);
         if (res.data.isLogin === "True") {
           alert("로그인 성공");
+          dispatch({ type: "LOGIN_USER", isLog: true });
           setLog("MainPage");
           localStorage.setItem("userId", idRef.current.value);
         } else {

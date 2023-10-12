@@ -1,19 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ChooseClassNameStyle } from "../PrivateCloset";
 import axios from "axios";
 import MyModal from "../../modal/MyModal";
 import "./Closet.css";
 import { ImageList, ImageListItem } from "@mui/material";
 
-export default function Closet(props) {
+export default function Closet() {
   const clothState = useSelector((state) => state.closetReducer);
   const modalState = useSelector((state) => state.modalReducer);
   const dispatch = useDispatch();
 
   const clickCloth = clothState.clickClothId;
   const clothInfo = clothState.clothInfo;
+  const styleContext = useContext(ChooseClassNameStyle);
   const userId = localStorage.getItem("userId");
-  console.log(modalState);
+
   useEffect(() => {
     try {
       axios
@@ -46,12 +48,7 @@ export default function Closet(props) {
                   style={{ cursor: "pointer" }}
                 ></img>
                 {clickCloth === cloth.id && modalState.modal_open ? (
-                  <MyModal
-                    id={cloth.id}
-                    type={cloth.type}
-                    image={cloth.img}
-                    modalvalue={props.modalvalue}
-                  />
+                  <MyModal id={cloth.id} type={cloth.type} image={cloth.img} />
                 ) : null}
               </ImageListItem>
             ) : null
@@ -65,9 +62,9 @@ export default function Closet(props) {
     <>
       <div
         className={
-          props.classvalue === "mycloset"
-            ? "wrap-makecloset"
-            : "wrap-outfitcloset"
+          styleContext === "make-closet"
+            ? "closet-makecloset"
+            : "closet-outfitcloset"
         }
       >
         <div>
