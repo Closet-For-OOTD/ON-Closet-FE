@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 
-export default function Login({ setLog }) {
+export default function Login() {
   const dispatch = useDispatch();
   const idRef = useRef();
   const pwRef = useRef();
@@ -14,10 +14,10 @@ export default function Login({ setLog }) {
       .post("/login", { id: idRef.current.value, pw: pwRef.current.value })
       .then((res) => {
         if (res.data.isLogin === "True") {
-          alert("로그인 성공");
-          dispatch({ type: "LOGIN_USER", isLog: true });
-          setLog("MainPage");
           localStorage.setItem("userId", idRef.current.value);
+          alert("로그인 성공");
+          dispatch({ type: "LOGIN", userId: idRef.current.value });
+          window.location.reload();
         } else {
           alert("로그인실패");
         }

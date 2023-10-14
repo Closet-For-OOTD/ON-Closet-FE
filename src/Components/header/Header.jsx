@@ -1,12 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import "./Header.css";
 import { AppBar, Toolbar } from "@mui/material";
 
 export default function Header({ titlevalue, buttonvalue }) {
+  const dispatch = useDispatch();
   const clickLogout = () => {
     axios.get("/logout");
     localStorage.clear();
+    dispatch({ type: "LOGOUT" });
   };
 
   return (

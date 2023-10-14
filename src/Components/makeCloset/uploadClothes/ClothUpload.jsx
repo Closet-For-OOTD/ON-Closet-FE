@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { useLoginState } from "../../redux/context/loginContext";
 import axios from "axios";
 import "./ClothUpload.css";
 
 export default function ClothUpload() {
-  const userId = localStorage.getItem("userId");
+  const { user } = useLoginState();
   const [selected, setSelected] = useState("");
   const changeSelect = (event) => {
     setSelected(event.target.value);
@@ -30,7 +31,7 @@ export default function ClothUpload() {
     const formData = new FormData();
     formData.append("myfile", myfile);
     formData.append("clothingType", myselect);
-    formData.append("userId", userId);
+    formData.append("userId", user.userId);
     sendFile(formData);
   };
 

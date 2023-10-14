@@ -1,21 +1,24 @@
 const initialState = {
-  userId: "",
-  isLogin: false,
+  userList: [],
+  user: { userId: "" },
 };
 
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "LOGIN_USER":
+    case "CREATE_USER":
       return {
         ...state,
-        userId: action.userId,
-        isLogin: action.isLog,
+        userList: state.userList.concat(action.user),
+      };
+    case "LOGIN":
+      return {
+        ...state,
+        user: { userId: action.userId },
       };
     case "LOGOUT":
       return {
         ...state,
-        userId: null,
-        isLogin: action.isLog,
+        user: { userId: null },
       };
     default:
       return state;

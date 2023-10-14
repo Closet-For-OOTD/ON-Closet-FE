@@ -1,16 +1,22 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useLoginState } from "../redux/context/loginContext";
 import axios from "axios";
 import Button from "@mui/material-next/Button";
 
 export default function CustomButton({ content, id, type, img }) {
   const dispatch = useDispatch();
+  const { user } = useLoginState();
 
-  const userId = localStorage.getItem("userId");
   const saveImage = (imageId, imageType, imageFile) => {
     try {
       const { data } = axios.post("/uploadOutfit", {
-        value: { id: imageId, type: imageType, img: imageFile, userId: userId },
+        value: {
+          id: imageId,
+          type: imageType,
+          img: imageFile,
+          userId: user.userId,
+        },
       });
       return data;
     } catch (e) {

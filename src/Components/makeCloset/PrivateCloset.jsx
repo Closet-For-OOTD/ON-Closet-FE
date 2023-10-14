@@ -2,6 +2,7 @@ import React from "react";
 import { createContext } from "react";
 import { Navigate } from "react-router-dom";
 import MakeCloset from "./MakeCloset";
+import { useLoginState } from "../redux/context/loginContext";
 
 // closet 페이지 모달 or outfit 페이지 모달
 export const ChooseModal = createContext();
@@ -9,11 +10,10 @@ export const ChooseModal = createContext();
 export const ChooseClassNameStyle = createContext();
 
 export default function PrivateCloset() {
-  const userId = localStorage.getItem("userId");
-
+  const { user } = useLoginState();
   return (
     <>
-      {userId ? (
+      {user.userId != null ? (
         <ChooseModal.Provider value="closet-modal">
           <ChooseClassNameStyle.Provider value="make-closet">
             <MakeCloset />

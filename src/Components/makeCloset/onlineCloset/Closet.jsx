@@ -4,17 +4,19 @@ import { ChooseClassNameStyle } from "../PrivateCloset";
 import axios from "axios";
 import MyModal from "../../modal/MyModal";
 import "./Closet.css";
+import { useLoginState } from "../../redux/context/loginContext";
 import { ImageList, ImageListItem } from "@mui/material";
 
 export default function Closet() {
+  // redux & redux 상태 변수에 담아서 사용
   const clothState = useSelector((state) => state.closetReducer);
   const modalState = useSelector((state) => state.modalReducer);
   const dispatch = useDispatch();
-
   const clickCloth = clothState.clickClothId;
   const clothInfo = clothState.clothInfo;
+  // contextApi로 classname 정하기
   const styleContext = useContext(ChooseClassNameStyle);
-  const userId = localStorage.getItem("userId");
+  const { user } = useLoginState();
 
   useEffect(() => {
     try {
@@ -31,7 +33,7 @@ export default function Closet() {
       clothInfo.data && (
         <ImageList sx={{ width: 200, height: 200 }} cols={1} rowheight={164}>
           {clothInfo.data?.map((cloth) =>
-            cloth.type === value && cloth.userId === userId ? (
+            cloth.type === value && cloth.userId === user.userId ? (
               <ImageListItem key={cloth.id + cloth.type}>
                 <img
                   src={`${cloth.img}?w=164&h=164&fit=crop&auto=format`}

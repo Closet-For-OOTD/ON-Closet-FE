@@ -1,8 +1,9 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { useLoginState } from "../redux/context/loginContext";
 import CheckOutfit from "./CheckOutfit";
 
 export default function PrivateCheckOutfit() {
-  const userId = localStorage.getItem("userId");
-  return <>{userId ? <CheckOutfit /> : <Navigate to="/" />}</>;
+  const { user } = useLoginState();
+  return <>{user.userId ? <CheckOutfit /> : <Navigate to="/" />}</>;
 }

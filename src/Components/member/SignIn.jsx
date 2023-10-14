@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "./Signin.css";
 import axios from "axios";
 
@@ -7,6 +8,7 @@ export default function SignIn({ setmode }) {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
+  const dispatch = useDispatch();
 
   const handleSignin = () => {
     axios
@@ -18,6 +20,13 @@ export default function SignIn({ setmode }) {
       .then((res) => {
         if (res.data.isSuccess === "True") {
           alert("회원가입이 완료되었습니다.");
+          dispatch({
+            type: "CREATE_USER",
+            user: {
+              id,
+              pw,
+            },
+          });
         } else {
           alert(res.data.isSuccess);
         }

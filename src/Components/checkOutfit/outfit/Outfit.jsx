@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLoginState } from "../../redux/context/loginContext";
 import "./Outfit.css";
 import Header from "../../header/Header";
 import axios from "axios";
@@ -7,7 +8,7 @@ import wface from "../../../assets/wface.png";
 import err from "../../../assets/onerror.png";
 
 export default function Outfit() {
-  const userId = localStorage.getItem("userId");
+  const { user } = useLoginState();
 
   const dispatch = useDispatch();
   const clothSelector = useSelector((state) => state.outfitReducer);
@@ -19,13 +20,13 @@ export default function Outfit() {
         const type = value[i].type;
         const img = value[i].img;
         const id = value[i].userId;
-        if (type === "TOP" && id === userId) {
+        if (type === "TOP" && id === user.userId) {
           dispatch({ type: "TOP_UPLOAD", top: img });
-        } else if (type === "BOTTOM" && id === userId) {
+        } else if (type === "BOTTOM" && id === user.userId) {
           dispatch({ type: "BOTTOM_UPLOAD", bottom: img });
-        } else if (type === "OUTER" && id === userId) {
+        } else if (type === "OUTER" && id === user.userId) {
           dispatch({ type: "OUTER_UPLOAD", outer: img });
-        } else if (type === "SHOES" && id === userId) {
+        } else if (type === "SHOES" && id === user.userId) {
           dispatch({ type: "SHOIES_UPLOAD", shoes: img });
         }
       }
